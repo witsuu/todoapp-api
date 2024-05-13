@@ -8,9 +8,12 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-	res.send("Hello World");
+	res.send("Welcome to TODO API!");
 });
 
+const authRoute = require("./routes/authRoute");
+app.use("/user", authRoute);
+
 app.listen(PORT, () => {
-	console.log("Server is Running!");
+	console.log(`SERVER IS lISTENING ON PORT ${PORT}`);
 });
